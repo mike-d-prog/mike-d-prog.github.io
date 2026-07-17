@@ -294,6 +294,24 @@
     border-radius:3px; height:22px; display:flex; align-items:center; justify-content:center;
   }
 
+  /* ===== Code Block ===== */
+  .code-block{
+    background:var(--paper); border:1px solid var(--grid);
+    border-radius:var(--radius); padding:16px; margin:22px 0;
+    overflow-x:auto;
+  }
+  .code-block pre{
+    margin:0; font-family:"IBM Plex Mono", monospace; font-size:12.5px;
+    line-height:1.5; color:var(--ink); white-space:pre;
+  }
+  .code-block code{
+    font-family:"IBM Plex Mono", monospace; color:var(--ink-soft);
+  }
+  .code-label{
+    font-family:"IBM Plex Mono", monospace; font-size:10px; letter-spacing:0.08em;
+    text-transform:uppercase; color:var(--ink-soft); margin-bottom:10px; display:block;
+  }
+
   /* ===== Certifications ===== */
   .cert-strip{display:flex; flex-wrap:wrap; gap:10px;}
   .cert{
@@ -589,6 +607,43 @@
         <li>Can Medicaid status be predicted from patient and referral data, and which referral channels
           are most associated with reaching Medicaid patients?</li>
       </ol>
+
+      <div class="code-block">
+        <span class="code-label">Census data pull — R</span>
+        <pre><code># Install packages if you don't have them yet 
+library(tidycensus) 
+library(dplyr) 
+
+# 1. Set your Census API key 
+# install = TRUE saves it so you don't have to re-enter it every session 
+census_api_key("INSERT YOUR KEY HERE", install = TRUE, overwrite = TRUE)
+ 
+# 2. Identify the tables and variables that you want to pull data from 
+acs_vars <- c(
+  medicaid_pct   = "S2701_C05_001",  # with Medicaid/means-tested                    
+  hispanic_pct   = "DP05_0071P",
+  spanish_ell_pct = "S1601_C02_004",  # Percent, Population 5+, Spanish
+  poverty_pct    = "S1701_C03_001"
+) 
+
+oh_data <- get_acs( geography = "zcta",  # or "tract", "block group", "state", etc. 
+                    variables = acs_vars,
+                    year = 2023, # most recent 5-year ACS 
+                    survey = "acs5" # or "acs1" for 1-year estimates
+) 
+
+# 3. Ohio ZIP codes generally start with 43, 44, or 45 
+oh_filtered <- oh_data %>% filter(substr(GEOID, 1, 2) %in% c("43", "44", "45"))
+
+# 4. Look at it to be sure the data seems correct 
+head(oh_filtered) 
+nrow(oh_filtered)
+
+# 5. Save to CSV
+write.csv(oh_filtered, "ohio_acs.csv", row.names = FALSE)
+getwd()</code></pre>
+      </div>
+
       <a class="proj-link" href="#">Project write-up coming soon</a>
     </div>
 
