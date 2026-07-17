@@ -294,6 +294,16 @@
     border-radius:3px; height:22px; display:flex; align-items:center; justify-content:center;
   }
 
+  /* ===== Image gallery ===== */
+  .image-gallery{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:16px;
+    margin:20px 0;
+  }
+  .gallery-img{
+    width:100%; height:auto; border:1px solid var(--grid);
+    border-radius:var(--radius); display:block;
+  }
+
   /* ===== Code Block ===== */
   .code-block{
     background:var(--paper); border:1px solid var(--grid);
@@ -344,6 +354,7 @@
     .matrix-row{grid-template-columns:1fr;}
     .matrix-cat{border-right:none; border-bottom:1px solid var(--grid-soft);}
     .skill-row{grid-template-columns:1fr; gap:4px;}
+    .image-gallery{grid-template-columns:1fr;}
   }
 </style>
 </head>
@@ -390,7 +401,7 @@
     <div class="sec-head"><h2>About</h2><span class="label">Sheet 1 of 4</span></div>
     <div class="about-grid">
       <p>
-        I've spent 26 years working at Earlham College — as a chemistry professor, pre-health advisor, co-Director of the Center for Global Health, Associate Vice President of Academic Affairs, and now Senior Associate Vice President of Strategic Financial Research.  In my current role, I have been engaged in budget/financial modeling for on-budget as well as restricted and endowed funds, building interactive budget dashboards, and improving workflow in finance utilizing excel to its fullest, including macros, and user defined functions.  Additionally, I am now working on projects in Institutional Research, such as IPEDS reporting. As I move forward in my current role, I want to continue to deepen and broaden the skills and experience that I can bring to this role so I am pursuing my Masters in Business Analytics.  Through coursework and projects, I have learned more about SQL, R, and Tableau as well as how to use AI efficiently and effectively to assist in my work. 
+        I've spent 26 years working at Earlham College — as a chemistry professor, pre-health advisor, co-Director of the Center for Global Health, Associate Vice President of Academic Affairs, and [...]
       </p>
       <div class="tools-card">
         <div class="label">Core toolkit</div>
@@ -439,7 +450,7 @@
           <div class="org">Earlham College · also Professor of Chemistry</div>
           <ul>
             <li>Served as Interim Dean of the Faculty (May 2020 – Feb 2022) while continuing as Associate VP of Academic Affairs</li>
-            <li>Earlier academic leadership roles at Earlham include Associate VP of Academic Affairs (2019–2020), Co-Director of the Center for Global Health (2016–2019), and Director of the Integrated Program in Health Sciences (2014–2016)</li>
+            <li>Earlier academic leadership roles at Earlham include Associate VP of Academic Affairs (2019–2020), Co-Director of the Center for Global Health (2016–2019), and Director of the Inte[...]</li>
           </ul>
         </div>
       </div>
@@ -590,7 +601,13 @@
       </p>
       <ol class="subq-list">
         <li>What's the current breakdown and zip-code distribution of Medicaid and/or Spanish-speaking
-          patients across branches, and how has it shifted over the dataset's timeline?</li>
+          patients across branches, and how has it shifted over the dataset's timeline?
+          <div class="image-gallery">
+            <img class="gallery-img" src="Medicare and Spanish percent by branch.png" alt="Medicare and Spanish percent by branch">
+            <img class="gallery-img" src="referral breakdown medicaid and spanish.png" alt="Referral breakdown medicaid and spanish">
+            <img class="gallery-img" src="referral by branch.png" alt="Referral by branch">
+          </div>
+        </li>
         <li>How does each branch's current Medicaid and/or Spanish-speaking share compare to the
           population nearby, and which branches are over- or under-performing relative to that benchmark?</li>
         <li>Which schools or school districts have characteristics that would make them attractive
