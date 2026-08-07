@@ -312,6 +312,117 @@
     text-transform:uppercase; color:var(--ink-soft); margin-bottom:10px; display:block;
   }
 
+  /* ===== Project sub-sections (Problem / Data Journey / Solutions / Impact) ===== */
+  .proj-subhead{
+    display:flex; align-items:center; gap:10px;
+    margin:30px 0 14px;
+  }
+  .proj-subhead .num{
+    font-family:"IBM Plex Mono", monospace; font-size:11px; font-weight:600;
+    color:var(--surface); background:var(--ink);
+    width:20px; height:20px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .proj-subhead h4{
+    font-family:"IBM Plex Mono", monospace; font-size:12px; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--ink-soft); font-weight:600;
+  }
+
+  /* Data journey */
+  .dj-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:14px;}
+  .dj-card{
+    background:var(--paper); border:1px solid var(--grid);
+    border-radius:var(--radius); padding:16px;
+  }
+  .dj-card .dj-title{font-size:14.5px; font-weight:600; margin-bottom:10px;}
+  .dj-card ul{margin:0; padding-left:0; list-style:none;}
+  .dj-card li{
+    font-size:13px; color:var(--ink-soft); line-height:1.5;
+    padding:6px 0 6px 16px; border-top:1px solid var(--grid-soft);
+    position:relative;
+  }
+  .dj-card li:first-child{border-top:none; padding-top:0;}
+  .dj-card li::before{
+    content:"→"; position:absolute; left:0; color:var(--pos); font-weight:600;
+  }
+  .dj-note{
+    font-size:13.5px; color:var(--ink-soft); font-style:italic;
+    border-left:3px solid var(--pos); padding-left:14px; margin:14px 0;
+  }
+  details.citations{
+    margin:14px 0 22px; font-size:13px; color:var(--ink-soft);
+    background:var(--paper); border:1px solid var(--grid-soft); border-radius:var(--radius);
+  }
+  details.citations summary{
+    cursor:pointer; padding:10px 14px;
+    font-family:"IBM Plex Mono", monospace; font-size:11px; letter-spacing:0.06em;
+    text-transform:uppercase; color:var(--ink-soft); font-weight:600;
+  }
+  details.citations summary:hover{color:var(--ink);}
+  details.citations ol{margin:0; padding:0 18px 14px 30px;}
+  details.citations li{margin-bottom:8px; line-height:1.5;}
+
+  /* Solutions */
+  .sol-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:22px;}
+  .sol-card{
+    background:var(--surface); border:1px solid var(--grid);
+    border-radius:var(--radius); padding:16px;
+  }
+  .sol-card .sol-tag{
+    display:inline-block; font-family:"IBM Plex Mono", monospace; font-size:10.5px;
+    padding:3px 8px; border-radius:3px; margin-bottom:12px; color:var(--surface);
+  }
+  .sol-card ul{margin:0; padding-left:18px; color:var(--ink-soft); font-size:13.5px;}
+  .sol-card li{margin-bottom:5px;}
+  .sol-card li b{color:var(--ink); font-weight:600;}
+
+  /* Impact */
+  .impact-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;}
+  .impact-card{
+    background:var(--paper); border:1px solid var(--grid);
+    border-radius:var(--radius); padding:16px;
+  }
+  .impact-card .branch{font-size:15px; font-weight:600; margin-bottom:8px;}
+  .impact-tag{
+    display:inline-flex; align-items:center; gap:5px;
+    font-family:"IBM Plex Mono", monospace; font-size:11px;
+    padding:3px 8px; border-radius:3px; margin:0 6px 6px 0;
+  }
+  .impact-tag.strength{color:var(--pos); background:var(--pos-soft); border:1px solid var(--pos);}
+  .impact-tag.opportunity{color:var(--gold); background:var(--gold-soft); border:1px solid var(--gold);}
+  .impact-card p{margin:8px 0 0; font-size:13.5px; color:var(--ink-soft);}
+  .impact-note{
+    font-size:13.5px; color:var(--ink-soft);
+    background:var(--surface); border:1px solid var(--grid);
+    border-radius:var(--radius); padding:14px 16px; margin-top:4px;
+  }
+  .impact-note li{margin-bottom:6px;}
+
+  @media (max-width: 760px){
+    .dj-grid, .sol-grid, .impact-grid{grid-template-columns:1fr;}
+  }
+
+  /* Technical & Visual Artifacts */
+  .artifact-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:14px;}
+  .artifact-card{
+    background:var(--surface); border:1px solid var(--grid);
+    border-radius:var(--radius); overflow:hidden;
+  }
+  .artifact-card.full{grid-column:1 / -1;}
+  .artifact-card img{width:100%; display:block; border-bottom:1px solid var(--grid-soft); background:var(--paper);}
+  .artifact-body{padding:14px 16px;}
+  .artifact-title{display:flex; align-items:center; gap:8px; margin-bottom:6px; flex-wrap:wrap;}
+  .artifact-title .name{font-size:14.5px; font-weight:600;}
+  .artifact-tag{
+    font-family:"IBM Plex Mono", monospace; font-size:10.5px;
+    padding:2px 7px; border-radius:3px; color:var(--surface); flex-shrink:0;
+  }
+  .artifact-caption{font-size:13px; color:var(--ink-soft); line-height:1.5; margin:0;}
+
+  @media (max-width: 760px){
+    .artifact-grid{grid-template-columns:1fr;}
+  }
+
   /* ===== Certifications ===== */
   .cert-strip{display:flex; flex-wrap:wrap; gap:10px;}
   .cert{
@@ -578,10 +689,13 @@
         <span class="label">HEALTHCARE ANALYTICS · CAPSTONE</span>
       </div>
       <h3>HW Dental: Reaching Medicaid & Spanish-Speaking Patients</h3>
+
+      <div class="proj-subhead"><span class="num">1</span><h4>Problem</h4></div>
       <p class="research-q">
-        Key business research question: how well is the clinic — overall and by branch — reaching
-        Medicaid and Spanish-speaking populations, and how might it grow in ways that attract more
-        of both?
+        HW Dental operates 4 branches and has a goal of particularly serving Medicaid and
+        Spanish-speaking populations. Key business research question: how well is HW Dental —
+        overall and by branch — reaching Medicaid and Spanish-speaking populations, and how might
+        it grow in ways that attract more of both?
       </p>
       <p class="desc">
         Working with HW Dental's patient dataset, combined with external population and school-district
@@ -591,13 +705,43 @@
       <ol class="subq-list">
         <li>What's the current breakdown and zip-code distribution of Medicaid and/or Spanish-speaking
           patients across branches, and how has it shifted over the dataset's timeline?</li>
-        <li>How does each branch's current Medicaid and/or Spanish-speaking share compare to the
-          population nearby, and which branches are over- or under-performing relative to that benchmark?</li>
+        <li>How does the current Medicaid and/or Spanish-speaking percentage at each branch compared to the
+          zip code population at their branch and which branch (or branches) are over or under performing?</li>
         <li>Which schools or school districts have characteristics that would make them attractive
           partners for the clinic?</li>
         <li>Can Medicaid status be predicted from patient and referral data, and which referral channels
           are most associated with reaching Medicaid patients?</li>
       </ol>
+
+      <div class="proj-subhead"><span class="num">2</span><h4>Data Journey</h4></div>
+      <div class="dj-grid">
+        <div class="dj-card">
+          <div class="dj-title">HW Dental data</div>
+          <ul>
+            <li>Formula and manual clean-up of real-world data errors and inconsistencies</li>
+            <li>Matched insurance carrier to Medicaid status</li>
+            <li>Built a new referral-translation table to improve category consistency</li>
+          </ul>
+        </div>
+        <div class="dj-card">
+          <div class="dj-title">Census data</div>
+          <ul>
+            <li>Tables B03003 (Hispanic origin) and S2704 (Medicaid) pulled via API using R</li>
+            <li>ZCTA-to-ZIP-code translation</li>
+            <li>Reliability check, limited to the Columbus metro area</li>
+            <li>Integrated with clinic data via ZIP code</li>
+          </ul>
+        </div>
+        <div class="dj-card">
+          <div class="dj-title">School data</div>
+          <ul>
+            <li>Ohio School Report Card: disaggregated race/ethnicity and English-learner data</li>
+            <li>NCES: school-neighborhood poverty</li>
+            <li>Integrated on NCES ID and Building IRN</li>
+            <li>Limited to schools within 19 miles of the nearest branch</li>
+          </ul>
+        </div>
+      </div>
 
       <div class="code-block">
         <span class="code-label">Census data pull — R</span>
@@ -635,7 +779,120 @@ write.csv(oh_filtered, "ohio_acs.csv", row.names = FALSE)
 getwd()</code></pre>
       </div>
 
-      <a class="proj-link" href="#">Project write-up coming soon</a>
+      <details class="citations">
+        <summary>Data sources & citations</summary>
+        <ol>
+          <li>Census Reporter. (n.d.). <em>ZIP code to ZCTA crosswalk</em> (ZIP_ZCTA_README.md). GitHub. Retrieved July 17, 2026, from github.com/censusreporter/acs-aggregate</li>
+          <li>National Center for Education Statistics. (n.d.). <em>School neighborhood poverty.</em> U.S. Department of Education, Institute of Education Sciences.</li>
+          <li>Ohio Department of Education and Workforce. (2025). <em>Building disaggregated race/ethnicity, 2024–2025</em> [Data set].</li>
+          <li>Ohio Department of Education and Workforce. (2025). <em>Building disaggregated English learner, 2024–2025</em> [Data set].</li>
+          <li>U.S. Census Bureau. (2014). <em>Hispanic or Latino origin</em> (Table B03003, ACS 5-year estimates). Pulled via API using R.</li>
+          <li>U.S. Census Bureau. (2024). <em>Public health insurance coverage by type and selected characteristics</em> (Table S2704, ACS 5-year estimates). Pulled via API using R.</li>
+        </ol>
+      </details>
+
+      <div class="proj-subhead"><span class="num">3</span><h4>Solutions</h4></div>
+      <div class="sol-grid">
+        <div class="sol-card">
+          <span class="sol-tag tab-viz">Excel</span>
+          <ul>
+            <li>Pivot tables</li>
+            <li>Bar charts</li>
+            <li>Histograms</li>
+            <li>Rankings</li>
+          </ul>
+        </div>
+        <div class="sol-card">
+          <span class="sol-tag tab-sql">Power BI</span>
+          <ul>
+            <li>Filled maps and point maps</li>
+            <li>Map overlays</li>
+          </ul>
+        </div>
+        <div class="sol-card">
+          <span class="sol-tag tab-ml">R</span>
+          <ul>
+            <li><b>Classification modeling:</b> logistic regression, lasso, tree, random forest, extreme gradient boosting</li>
+            <li><b>Cluster modeling:</b> hierarchical, k-means</li>
+            <li>Heat maps</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="proj-subhead"><span class="num">4</span><h4>Impact <span style="font-weight:400; text-transform:none; letter-spacing:normal; font-family:'IBM Plex Sans',sans-serif; font-size:13px;">(business recommendation)</span></h4></div>
+      <p class="desc">Each of HW Dental's branches has a strength to build on and an opportunity for growth:</p>
+      <div class="impact-grid">
+        <div class="impact-card">
+          <div class="branch">Westerville</div>
+          <span class="impact-tag strength">Strength: Spanish-speaking reach</span>
+          <span class="impact-tag opportunity">Opportunity: Medicaid</span>
+        </div>
+        <div class="impact-card">
+          <div class="branch">Clintonville</div>
+          <span class="impact-tag strength">Strength: Medicaid reach</span>
+          <span class="impact-tag opportunity">Opportunity: Spanish-speaking outreach</span>
+        </div>
+        <div class="impact-card">
+          <div class="branch">Polaris</div>
+          <span class="impact-tag strength">Strength: Medicaid reach</span>
+          <span class="impact-tag opportunity">Opportunity: Spanish-speaking outreach</span>
+        </div>
+        <div class="impact-card">
+          <div class="branch">Sawmill</div>
+          <span class="impact-tag strength">Strength: Medicaid reach</span>
+          <span class="impact-tag opportunity">Opportunity: Spanish-speaking outreach</span>
+        </div>
+      </div>
+      <div class="impact-note">
+        <ul style="margin:0; padding-left:18px;">
+          <li>Referral channels are correlated with Medicaid and Spanish-speaking likelihood and could potentially be leveraged</li>
+          <li>Targeted school partnerships could also be used to support improvement at each branch</li>
+        </ul>
+      </div>
+
+      <div class="proj-subhead"><span class="num">5</span><h4>Technical & Visual Artifacts</h4></div>
+      <div class="artifact-grid">
+        <div class="artifact-card full">
+          <img src="assets/dashboard_map.jpg" alt="Power BI filled map dashboard showing patient counts, Spanish-likelihood, and Medicaid percentage by zip code across all four branches">
+          <div class="artifact-body">
+            <div class="artifact-title">
+              <span class="name">Branch Catchment Dashboard</span>
+              <span class="artifact-tag tab-sql">Power BI</span>
+            </div>
+            <p class="artifact-caption">Filled maps comparing patient volume, Spanish-likelihood, and Medicaid share by zip code across all four branches, with branch locations overlaid.</p>
+          </div>
+        </div>
+        <div class="artifact-card">
+          <img src="assets/rf_importance.png" alt="Random Forest variable importance plot, top 15 predictors, age at visit and Spanish likelihood ranked highest">
+          <div class="artifact-body">
+            <div class="artifact-title">
+              <span class="name">Random Forest Variable Importance</span>
+              <span class="artifact-tag tab-ml">R</span>
+            </div>
+            <p class="artifact-caption">Top predictors of Medicaid status from the selected classification model — age at visit, Spanish-likelihood, and family size ranked highest.</p>
+          </div>
+        </div>
+        <div class="artifact-card">
+          <img src="assets/classification_tree.png" alt="Decision tree diagram for classification model, first split at age 22">
+          <div class="artifact-body">
+            <div class="artifact-title">
+              <span class="name">Classification Tree</span>
+              <span class="artifact-tag tab-ml">R</span>
+            </div>
+            <p class="artifact-caption">Decision tree used to sanity-check the Random Forest — first splits on age at visit (22) and gender, consistent with the importance ranking.</p>
+          </div>
+        </div>
+        <div class="artifact-card full">
+          <img src="assets/cluster_heatmap.png" alt="Cluster profile heat map showing mean z-scores across four school clusters for English learner percent, income-to-poverty ratio, distance, and population">
+          <div class="artifact-body">
+            <div class="artifact-title">
+              <span class="name">School Cluster Profile Heat Map</span>
+              <span class="artifact-tag tab-ml">R</span>
+            </div>
+            <p class="artifact-caption">Mean z-scores by cluster from the Ward's D2 hierarchical clustering (k=4), used to characterize school-partnership candidates by English-learner share, poverty, distance, and population.</p>
+          </div>
+        </div>
+      </div>
     </div>
 
   </section>
